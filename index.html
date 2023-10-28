@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Genius</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        .inter{
+            font-family: 'Inter', sans-serif;
+        }
+        
+      </style>
+
+
+
+</head>
+<body>
+    
+    <header class="flex justify-between items-center px-12 mt-14 w-[95%] mx-auto bg-[#1090D81A] p-4">
+        <div>
+            <h1 class="inter text-[2.8rem] font-semibold">Interactive</h1>
+            <h3 class="inter text-[1.8rem] text-gray-500">Geometry Genius</h3>
+        </div>
+
+        <div>
+            <button class="btn btn-accent w-[7.5rem] h-[3rem] rounded-lg bg-[#1090D8] text-white inter text-xl font-semibold">Blog</button>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 w-[95%] mx-auto mt-14 mb-14">
+
+                <!-- triangle -->
+
+                
+                <div class=" card w-[27rem] bg-white h-[32rem] rounded-lg border border-[#1111111A]">
+                    <figure class="px-10 pt-10">
+                      <img src="./images/triangle.png" alt="triangle" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title text-[#414141] inter ">Triangle</h2>
+                      <p>Area (A) = 0.5 X B X H</p>
+                      
+                      <div class="flex gap-2 items-center">
+                        <input id="triangle-base" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="b">
+                      <span>cm</span>
+                      <input id="triangle-height" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="h">
+                      <span>cm</span>
+                      </div>
+
+                      <p class="mt-3">Area = <span id="area-result1">0</span> cm <sup>2</sup></p>
+                      <div class="card-actions">
+                        <button onclick="calculateTriangle()" class="btn btn-primary bg-[#1090D8] w-[21.8rem] h-[3.5rem]rounded-lg border-none text-white inter text-xl font-semibold capitalize">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+
+                <!-- rectangle -->
+
+
+                <div class="card w-[27rem] bg-white h-[32rem] rounded-lg border border-[#1111111A]">
+                    <figure class="px-10 pt-10">
+                      <img src="./images/rectangle.png" alt="triangle" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title text-[#414141] inter ">Rectangle</h2>
+                      <p>Area (A) = W X L</p>
+                      
+                      <div class="flex gap-2 items-center">
+                        <input id="rectangle-width" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="w">
+                      <span>cm</span>
+                      <input id="rectangle-length" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="l">
+                      <span>cm</span>
+                      </div>
+                      <p class="mt-3">Area = <span id="area-result2">0</span> cm <sup>2</sup></p>
+                      <div class="card-actions">
+                        <button onclick="calculateRectangle()" class="btn btn-primary bg-[#1090D8] w-[21.8rem] h-[3.5rem]rounded-lg border-none text-white inter text-xl font-semibold capitalize">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+
+
+                <!-- Parallelogram -->
+
+
+                <div class="card w-[27rem] bg-white h-[32rem] rounded-lg border border-[#1111111A]">
+                    <figure class="px-10 pt-10">
+                      <img src="./images/parallelogram.png" alt="triangle" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title text-[#414141] inter ">Parallelogram</h2>
+                      <p>Area (A) = B X H</p>
+                      
+                      <div class="flex gap-2 items-center">
+                        <input id="parallelogram-base" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="b">
+                      <span>cm</span>
+                      <input id="parallelogram-height" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="h">
+                      <span>cm</span>
+                      </div>
+                      <p class="mt-3">Area = <span id="area-result3">0</span> cm <sup>2</sup></p>
+                      <div class="card-actions">
+                        <button onclick="calculateParallelogram()" class="btn btn-primary bg-[#1090D8] w-[21.8rem] h-[3.5rem]rounded-lg border-none text-white inter text-xl font-semibold capitalize">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Area Calculation  -->
+
+
+                <div class="hidden lg:block card w-[27rem] bg-white h-[32rem] rounded-lg border border-[#1111111A]">
+                    <h1 class="inter text-xl font-semibold underline text-center mt-8">Area Calculation</h1>
+                    <div id="calculation-entry">
+
+                    </div>
+                  </div>
+
+
+                <!-- Rhombus  -->
+
+
+                <div class="card w-[27rem] bg-white h-[32rem] rounded-lg border border-[#1111111A]">
+                    <figure class="px-10 pt-10">
+                      <img src="./images/rhombus.png" alt="triangle" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title text-[#414141] inter ">Rhombus</h2>
+                      <p>Area (A) = 0.5 X d<sub>1</sub> X d<sub>2</sub></p>
+                      
+                      <div class="flex gap-2 items-center">
+                        <input id="d1" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="d1">
+                      <span>cm</span>
+                      <input id="d2" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="d2">
+                      <span>cm</span>
+                      </div>
+                      <p class="mt-3">Area = <span id="area-result4">0</span> cm <sup>2</sup></p>
+                      <div class="card-actions">
+                        <button onclick="calculateRhombus()" class="btn btn-primary bg-[#1090D8] w-[21.8rem] h-[3.5rem]rounded-lg border-none text-white inter text-xl font-semibold capitalize">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Pentagon  -->
+
+
+                <div class="card w-[27rem] bg-white h-[32rem] rounded-lg border border-[#1111111A]">
+                    <figure class="px-10 pt-10">
+                      <img src="./images/pentagon.png" alt="triangle" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title text-[#414141] inter ">Pentagon</h2>
+                      <p>Area (A) = 0.5 X p X b</p>
+                      
+                      <div class="flex gap-2 items-center">
+                        <input id="penta-p" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="p">
+                      <span>cm</span>
+                      <input id="penta-b" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="b">
+                      <span>cm</span>
+                      </div>
+                      <p class="mt-3">Area = <span id="area-result5">0</span> cm <sup>2</sup></p>
+                      <div class="card-actions">
+                        <button onclick="calculatePentagon()" class="btn btn-primary bg-[#1090D8] w-[21.8rem] h-[3.5rem]rounded-lg border-none text-white inter text-xl font-semibold capitalize">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Ellipse  -->
+
+
+                <div class="card w-[27rem] bg-white h-[32rem] rounded-lg border border-[#1111111A]">
+                    <figure class="px-10 pt-10">
+                      <img src="./images/ellipse.png" alt="triangle" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title text-[#414141] inter ">Ellipse</h2>
+                      <p>Area (A) = &Pi; X ab</p>
+                      
+                      <div class="flex gap-2 items-center">
+                        <input id="elipse-a" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="a">
+                      <span>cm</span>
+                      <input id="elipse-b" class="bg-[#F1F1F1] w-[5.93rem] h-8 rounded-md text-[#414141] inter pl-2" type="text" placeholder="b">
+                      <span>cm</span>
+                      </div>
+                      <p class="mt-3">Area = <span id="area-result6">0</span> cm <sup>2</sup></p>
+                      <div class="card-actions">
+                        <button onclick="calculateEllipse()" class="btn btn-primary bg-[#1090D8] w-[21.8rem] h-[3.5rem]rounded-lg border-none text-white inter text-xl font-semibold capitalize">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+            </div>
+        </section>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
